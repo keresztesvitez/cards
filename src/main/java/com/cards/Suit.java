@@ -29,8 +29,7 @@ public enum Suit {
                 symbol.append('\u2666');
                 break;
             case HEARTS:
-//                symbol.append('\u2665');
-                symbol.append('♥');
+                symbol.append('\u2665');
                 break;
             case SPADES:
                 symbol.append('\u2660');
