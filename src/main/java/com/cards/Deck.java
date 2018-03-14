@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
+
+    private static final int DEFAULT_DECK_SIZE = 52;
     private ArrayList<Card> cards;
 
     public Deck() {
@@ -11,7 +13,7 @@ public class Deck {
     }
 
     private ArrayList<Card> generateDeck() {
-        ArrayList<Card> cards = new ArrayList<>(52);
+        ArrayList<Card> cards = new ArrayList<>(DEFAULT_DECK_SIZE);
 
         for (Suit suit : Suit.values()) {
             for (Rank rank : Rank.values()) {
@@ -34,6 +36,10 @@ public class Deck {
             throw new IllegalStateException("Deck is empty");
         }
 
+    }
+
+    public int getSize() {
+        return this.cards.size();
     }
 
     @Override
