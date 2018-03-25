@@ -1,5 +1,7 @@
 package com.cards;
 
+import com.cards.exceptions.HandException;
+
 import java.util.ArrayList;
 
 public class Hand {
@@ -13,14 +15,18 @@ public class Hand {
     }
 
     public void add(Card card) {
-        if (cards.size() <= this.size) {
+        if (cards.size() < this.size) {
             cards.add(card);
         } else {
-            throw new RuntimeException("Hand size limit ("+this.size+") reached");
+            throw new HandException("Hand size limit ("+this.size+") reached");
         }
     }
 
     public Card remove(int i) {
-        return cards.remove(i);
+        if (cards.size() > 0) {
+            return cards.remove(i);
+        } else {
+            throw new HandException("The hand is empty");
+        }
     }
 }
