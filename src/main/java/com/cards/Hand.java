@@ -7,26 +7,28 @@ import java.util.ArrayList;
 public class Hand {
     private ArrayList<Card> cards;
 
-    private int size;
+    private int maxSize;
 
-    public Hand(int size) {
-        this.size = size;
-        this.cards = new ArrayList<>(size);
+    public Hand(int maxSize) {
+        this.maxSize = maxSize;
+        this.cards = new ArrayList<>(maxSize);
     }
 
     public void add(Card card) {
-        if (cards.size() < this.size) {
+        if (cards.size() < this.maxSize) {
             cards.add(card);
         } else {
-            throw new HandException("Hand size limit ("+this.size+") reached");
+            throw new HandException("Hand size limit ("+this.maxSize+") reached");
         }
     }
 
-    public Card remove(int i) {
-        if (cards.size() > 0) {
-            return cards.remove(i);
-        } else {
+    public Card play(int i) {
+        if (cards.size() == 0) {
             throw new HandException("The hand is empty");
+        } else if (cards.size() < i) {
+            throw new HandException("Index is out of hand's bounds");
+        } else {
+            return cards.remove(i);
         }
     }
 }

@@ -23,7 +23,17 @@ public class HandTest {
 
         hand.add(deck.draw());
 
-        hand.remove(0);
-        hand.remove(0);
+        hand.play(0);
+        hand.play(0);
+    }
+
+    @Test(expected = HandException.class)
+    public void removeCardShouldThrowException_whenIndexIsOutOfBounds() {
+        Deck deck = new Deck();
+
+        Hand hand = new Hand(1);
+
+        hand.add(deck.draw());
+        hand.play(2);
     }
 }

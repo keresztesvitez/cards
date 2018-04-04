@@ -29,7 +29,7 @@ public class Deck {
     }
 
     public Card draw() {
-        //remove the top card from the deck
+        //draw the top card from the deck
         if (cards.size() > 0) {
             return cards.remove(0);
         } else {
