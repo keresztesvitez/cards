@@ -42,6 +42,10 @@ public class Deck {
         return this.cards.size();
     }
 
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
+
     @Override
     public String toString() {
         return "Deck " + cards.toString();

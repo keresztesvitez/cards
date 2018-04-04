@@ -31,4 +31,12 @@ public class Hand {
             return cards.remove(i);
         }
     }
+
+    public int getMaxSize() {
+        return maxSize;
+    }
+
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
 }
